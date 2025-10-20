@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { X, Trophy, Flame, Star, Book, CheckCircle, XCircle } from 'lucide-react';
 import { getRandomQuizQuestion, submitQuizAnswer, getFamilyLeaderboard } from '../lib/api';
 import { useAuth } from '../contexts/AuthContext';
@@ -24,6 +24,7 @@ export default function BibleQuiz({ isOpen, onClose }: BibleQuizProps) {
       loadQuestion();
       loadLeaderboard();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   const loadQuestion = async () => {

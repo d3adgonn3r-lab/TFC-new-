@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { supabase } from './supabase';
-import type { User, Family, Media, Post, Notification, QuizQuestion, QuizAttempt } from '../types';
+import type { User, Family, Media, Post, Notification, QuizQuestion } from '../types';
 
 export async function createUserProfile(userId: string, userData: Omit<User, 'id' | 'createdAt'>) {
   const { error } = await supabase

@@ -6,6 +6,9 @@ export type Json =
   | { [key: string]: Json | undefined }
   | Json[]
 
+export type Tables<T extends keyof Database['public']['Tables']> = Database['public']['Tables'][T]['Row']
+export type Enums<T extends keyof Database['public']['Enums']> = Database['public']['Enums'][T]
+
 export interface Database {
   public: {
     Tables: {
@@ -267,6 +270,18 @@ export interface Database {
           created_at?: string
         }
       }
+    }
+    Views: {
+      [_ in never]: never
+    }
+    Functions: {
+      increment_family_members: {
+        Args: { family_id: string }
+        Returns: undefined
+      }
+    }
+    Enums: {
+      [_ in never]: never
     }
   }
 }
